@@ -1,0 +1,86 @@
+[
+  {
+    "arm": "Base FP16",
+    "perplexity": 15.981,
+    "ccer": 0.6667,
+    "ccer_detail": {
+      "dosage": {
+        "probes": 15,
+        "errors": 10,
+        "error_rate": 0.6666666666666666
+      },
+      "drug": {
+        "probes": 0,
+        "errors": 0,
+        "error_rate": 0.0
+      },
+      "negation": {
+        "probes": 0,
+        "errors": 0,
+        "error_rate": 0.0
+      }
+    },
+    "size_mb": 2944.4,
+    "avg_bits": 16.0,
+    "edge_feasible": true,
+    "edge_ram_mb": 2235.7,
+    "edge_tokens_per_sec": 26.52,
+    "elapsed_sec": 81.5
+  },
+  {
+    "arm": "Fine-tuned FP16",
+    "perplexity": 15.614,
+    "ccer": 0.6667,
+    "ccer_detail": {
+      "dosage": {
+        "probes": 15,
+        "errors": 10,
+        "error_rate": 0.6666666666666666
+      },
+      "drug": {
+        "probes": 0,
+        "errors": 0,
+        "error_rate": 0.0
+      },
+      "negation": {
+        "probes": 0,
+        "errors": 0,
+        "error_rate": 0.0
+      }
+    },
+    "size_mb": 2944.4,
+    "avg_bits": 16.0,
+    "edge_feasible": true,
+    "edge_ram_mb": 2236.35,
+    "edge_tokens_per_sec": 20.38,
+    "elapsed_sec": 89.3
+  },
+  {
+    "arm": "LSAQ (simulated)",
+    "perplexity": 16.239,
+    "perplexity_estimated": true,
+    "ccer": 0.7,
+    "ccer_estimated": true,
+    "size_mb": 1223.77,
+    "avg_bits": 5.0,
+    "edge_feasible": true,
+    "edge_ram_mb": null,
+    "edge_tokens_per_sec": null,
+    "elapsed_sec": 0.0
+  },
+  {
+    "arm": "CW-LSAQ (simulated)",
+    "perplexity": 16.239,
+    "perplexity_estimated": true,
+    "ccer": 0.5862,
+    "ccer_estimated": true,
+    "size_mb": 1223.77,
+    "avg_bits": 5.0,
+    "n_protected_layers": 7,
+    "total_layers": 28,
+    "edge_feasible": true,
+    "edge_ram_mb": null,
+    "edge_tokens_per_sec": null,
+    "elapsed_sec": 0.0
+  }
+]

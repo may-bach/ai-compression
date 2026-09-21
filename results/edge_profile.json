@@ -1,0 +1,21 @@
+{
+  "size": {
+    "total_size_mb": 920.13,
+    "estimated_from_params": true,
+    "fits_edge_2gb": true
+  },
+  "ram": {
+    "baseline_ram_mb": 2236.35,
+    "peak_ram_mb": 2236.35,
+    "inference_ram_mb": 0.0,
+    "fits_edge_4gb": true
+  },
+  "throughput": {
+    "avg_tokens_per_sec": 20.18,
+    "avg_latency_sec": 2.477,
+    "total_tokens": 150,
+    "n_threads": 4,
+    "n_runs": 3
+  },
+  "overall_feasible": true
+}

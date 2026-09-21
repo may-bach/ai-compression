@@ -1,0 +1,7 @@
+{
+  "adapter_path": "D:\\Projects\\ai-compression\\saved_models\\medical_qlora_adapter",
+  "train_loss": 2.7577,
+  "train_time_sec": 5.0,
+  "n_samples": 20,
+  "epochs": 1
+}
