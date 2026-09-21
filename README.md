@@ -7,7 +7,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 > **Preserving Critical-Error Performance under Model Compression for Edge-Deployed Medical LLMs**  
-> *A Project for Challenging Assignment 2 (DA 2) — BECE309L: Artificial Intelligence and Machine Learning*  
 > *School of Electronics Engineering (SENSE), Vellore Institute of Technology (VIT)*
 
 ---
@@ -81,8 +80,6 @@ Evaluated using a controlled CPU runtime restricting PyTorch to 4 threads (simul
 
 ```
 ai-compression/
-├── DA2_Report_Group28.docx     # Academic project report (Word format, IEEE styled)
-├── report.tex                  # Overleaf LaTeX IEEE source (VIT DA2 title page + paper)
 ├── requirements.txt            # Python dependencies
 ├── LICENSE                     # MIT License
 ├── README.md                   # Project documentation
@@ -169,29 +166,13 @@ python -m src.main --phase scoring
 
 ---
 
-## 📄 Academic Report & Overleaf
+## 👥 Authors
 
-This repository includes both the Word document and the complete LaTeX code ready for Overleaf:
+* **Gouse Moideen S**
+* **Sandeep Samuel**
+* **Gopinath Premkumar**
 
-* **Word Document**: [`DA2_Report_Group28.docx`](DA2_Report_Group28.docx) (formatted in IEEE two-column style with VIT DA2 cover page).
-* **Overleaf LaTeX Code**: [`report.tex`](report.tex)
-  * To compile on [Overleaf](https://www.overleaf.com/): Create a new blank project, replace `main.tex` with `report.tex`, ensure the compiler is set to **pdfLaTeX**, and click **Recompile**.
-
----
-
-## 👥 Authors & Course Information
-
-**Vellore Institute of Technology (VIT)**  
-*School of Electronics Engineering (SENSE)*  
-*BECE309L: Artificial Intelligence and Machine Learning*  
-*Challenging Assignment 2 (DA 2) — Slot: G1+TG1 — Class: CH2026270102365 — Group: 28*
-
-* **Gouse Moideen S** (24BLC1392)
-* **Sandeep Samuel** (24BLC1087)
-* **Gopinath Premkumar** (24BLC1040)
-
-**Faculty Guide:** Prof. Praveen Jaraut  
-**Semester:** Fall Semester 2026–2027
+*School of Electronics Engineering (SENSE), Vellore Institute of Technology (VIT)*
 
 ---
 

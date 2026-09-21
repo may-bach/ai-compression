@@ -36,3 +36,17 @@ saved_models/
 # Backups
 *_backup.docx
 
+# Reports, Documents & TeX
+*.docx
+*.doc
+*.pdf
+*.tex
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
