@@ -10,6 +10,7 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{tabularx}
+\usepackage{array}
 \usepackage{url}
 \usepackage{cite}
 \usepackage{microtype}
@@ -140,29 +141,29 @@ As a result, a layer that is ``unimportant'' under this metric and is therefore 
 \centering
 \caption{Summary of Reviewed Literature}
 \label{tab:literature}
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.3}
 \footnotesize
-\begin{tabularx}{\textwidth}{lp{3.4cm}p{4.2cm}p{4.0cm}X}
+\begin{tabularx}{\textwidth}{p{0.8cm}p{3.2cm}p{4.2cm}p{3.8cm}X}
 \toprule
 \textbf{Ref.} & \textbf{Paper} & \textbf{Method / Focus} & \textbf{Key Finding} & \textbf{Gap w.r.t. This Project} \\
 \midrule
-[1] & LSAQ (Base Paper) & Top-$k$ token-set Jaccard similarity for layer ranking; dynamic bit-allocation & Outperforms uniform quantization baselines on perplexity/zero-shot & Vocabulary-agnostic; no clinical weighting or critical-error analysis \\
-\midrule
-[2] & QSpec & Low-precision draft + high-precision verify via speculative decoding & Up to 1.64$\times$ speedup with zero quality degradation & Focuses on general reasoning speed, not domain-specific safety \\
-\midrule
-[3] & Sustainable Edge LLMs & Benchmarks 28 quantized LLMs on Raspberry Pi with hardware energy metering & Quantifies trade-offs between latency, energy, and accuracy & General-purpose tasks only; no medical token error analysis \\
-\midrule
-[4] & Quantized Biomedical LLMs & Evaluates 8-/4-bit quantization on 12 biomedical LLMs across 4 tasks & Quantization retains broad domain knowledge; cuts RAM up to 75\% & No layer-level or token-level clinical critical error evaluation \\
-\midrule
-[5] & Beyond Scalar Scores & Fine-grained clinical significance error span evaluation in clinical reports & Scalar metrics hide critical clinical errors; span metrics improve safety & Focused on report grading, not quantization-time decisions \\
-\midrule
-[6] & Aletheia & QLoRA fine-tuned 3B model for offline differential diagnosis & 80\% top-1 diagnostic accuracy on commodity offline hardware & Standard uniform quantization; lacks adaptive layer allocation \\
-\midrule
-[7] & Lightweight CDS & QLoRA fine-tuning combined with retrieval-augmented generation (RAG) & Enhances biomedical reasoning accuracy with modest edge compute & Uniform quantization; lacks layer-sensitivity clinical weighting \\
-\midrule
-[8] & AWQ & Protects activation-salient weight channels during low-bit quantization & Preserves accuracy by protecting $\sim$1\% of salient weights & Salience is activation-based, not clinical-vocabulary-based \\
-\midrule
-[9] & Edge LLM Survey & Comprehensive survey of edge LLM compression and runtime frameworks & Confirms domain-aware, safety-critical compression is open & Survey level; motivates but does not propose concrete algorithms \\
+{[1]} & LSAQ (Base Paper)~\cite{zeng2024lsaq} & Top-$k$ token-set Jaccard similarity for layer ranking; dynamic bit-allocation & Outperforms uniform quantization baselines on perplexity/zero-shot & Vocabulary-agnostic; no clinical weighting or critical-error analysis \\
+\hline
+{[2]} & QSpec~\cite{zhao2025qspec} & Low-precision draft + high-precision verify via speculative decoding & Up to 1.64$\times$ speedup with zero quality degradation & Focuses on general reasoning speed, not domain-specific safety \\
+\hline
+{[3]} & Sustainable Edge LLMs~\cite{husom2025sustainable} & Benchmarks 28 quantized LLMs on Raspberry Pi with hardware energy metering & Quantifies trade-offs between latency, energy, and accuracy & General-purpose tasks only; no medical token error analysis \\
+\hline
+{[4]} & Quantized Biomedical LLMs~\cite{zhan2025quantized} & Evaluates 8-/4-bit quantization on 12 biomedical LLMs across 4 tasks & Quantization retains broad domain knowledge; cuts RAM up to 75\% & No layer-level or token-level clinical critical error evaluation \\
+\hline
+{[5]} & Beyond Scalar Scores~\cite{lu2026beyond} & Fine-grained clinical significance error span evaluation in clinical reports & Scalar metrics hide critical clinical errors; span metrics improve safety & Focused on report grading, not quantization-time decisions \\
+\hline
+{[6]} & Aletheia~\cite{walusimbi2026aletheia} & QLoRA fine-tuned 3B model for offline differential diagnosis & 80\% top-1 diagnostic accuracy on commodity offline hardware & Standard uniform quantization; lacks adaptive layer allocation \\
+\hline
+{[7]} & Lightweight CDS~\cite{ansari2025lightweight} & QLoRA fine-tuning combined with retrieval-augmented generation (RAG) & Enhances biomedical reasoning accuracy with modest edge compute & Uniform quantization; lacks layer-sensitivity clinical weighting \\
+\hline
+{[8]} & AWQ~\cite{lin2024awq} & Protects activation-salient weight channels during low-bit quantization & Preserves accuracy by protecting $\sim$1\% of salient weights & Salience is activation-based, not clinical-vocabulary-based \\
+\hline
+{[9]} & Edge LLM Survey~\cite{zheng2024review} & Comprehensive survey of edge LLM compression and runtime frameworks & Confirms domain-aware, safety-critical compression is open & Survey level; motivates but does not propose concrete algorithms \\
 \bottomrule
 \end{tabularx}
 \end{table*}
@@ -233,9 +234,9 @@ We extracted layer-wise input and output hidden states across 28 layers over Pub
 \label{tab:layer_scores}
 \renewcommand{\arraystretch}{1.2}
 \footnotesize
-\begin{tabularx}{\textwidth}{lp{4.2cm}cccc}
+\begin{tabularx}{\textwidth}{p{1.8cm}X>{\centering\arraybackslash}p{2.2cm}>{\centering\arraybackslash}p{2.2cm}>{\centering\arraybackslash}p{2.4cm}>{\centering\arraybackslash}p{3.6cm}}
 \toprule
-\textbf{Layer Index} & \textbf{Layer Architecture Role} & \textbf{LSAQ (Unweighted)} & \textbf{CW-LSS (Weighted)} & \textbf{Delta (LSAQ $-$ CW)} & \textbf{Precision Allocation} \\
+\textbf{Layer} & \textbf{Architecture Role} & \textbf{LSAQ (Unweighted)} & \textbf{CW-LSS (Weighted)} & \textbf{Delta (LSAQ $-$ CW)} & \textbf{Precision Allocation} \\
 \midrule
 Layer 0  & Input Decoder Layer           & 0.0559 & 0.0557 & $+0.0002$ & 8-bit $\rightarrow$ 8-bit (Retained) \\
 Layer 1  & Early Attention Layer         & 0.2937 & 0.2933 & $+0.0003$ & 8-bit $\rightarrow$ 8-bit (Retained) \\
@@ -250,7 +251,7 @@ Layer 25 & Pre-Output Lexical Layer      & 0.5976 & 0.5952 & $+0.0024$ & 4-bit $
 Layer 26 & Output Semantic Layer         & 0.3522 & 0.3488 & $+0.0034$ & \textbf{4-bit $\rightarrow$ 8-bit (Promoted)*} \\
 Layer 27 & Final Output Projection       & 0.3365 & 0.3305 & $+0.0060$ & 8-bit $\rightarrow$ 8-bit (Retained) \\
 \midrule
-\textbf{All 28 Layers} & Full Qwen2.5-1.5B-Instruct Model & Min: 0.0559 & Min: 0.0557 & Range: [$-0.007$, $+0.006$] & \textbf{5.00 avg bits (7$\times$8b, 21$\times$4b)} \\
+\textbf{All 28 Layers} & Full Qwen2.5-1.5B Model & Min: 0.0559 & Min: 0.0557 & Range: [$-0.007$, $+0.006$] & \textbf{5.00 avg bits (7$\times$8b, 21$\times$4b)} \\
 \bottomrule
 \end{tabularx}
 \vspace{0.1cm}
@@ -263,16 +264,16 @@ Layer 27 & Final Output Projection       & 0.3365 & 0.3305 & $+0.0060$ & 8-bit $
 \centering
 \caption{Comprehensive Four-Arm Benchmark Comparison: Perplexity, Clinical Safety, and Storage Footprint}
 \label{tab:benchmark}
-\renewcommand{\arraystretch}{1.2}
+\renewcommand{\arraystretch}{1.25}
 \footnotesize
-\begin{tabularx}{\textwidth}{lcccccX}
+\begin{tabularx}{\textwidth}{p{3.8cm}>{\centering\arraybackslash}p{2.4cm}>{\centering\arraybackslash}p{1.6cm}>{\centering\arraybackslash}p{2.0cm}>{\centering\arraybackslash}p{1.8cm}>{\centering\arraybackslash}p{2.5cm}>{\centering\arraybackslash}X}
 \toprule
 \textbf{Model Evaluation Arm} & \textbf{Precision Schedule} & \textbf{Model Size} & \textbf{Compression} & \textbf{Perplexity (PPL)} & \textbf{CCER (Critical Errors)} & \textbf{Edge Feasible?} \\
 \midrule
 Arm 1: Base Model (FP16)        & 16.0 bits (Uniform)  & 2944.4\,MB & 1.00$\times$ (Base) & 15.981 & 0.6667 (10/15) & YES (Low Margin) \\
 Arm 2: Fine-Tuned Model (FP16)  & 16.0 bits (Uniform)  & 2944.4\,MB & 1.00$\times$        & 15.614 ($-2.3$\%) & 0.6667 (10/15) & YES (Low Margin) \\
 Arm 3: LSAQ Baseline (Quantized)& 5.0 bits (Adaptive)  & 1223.77\,MB& 2.41$\times$ (58.4\% cut)& 16.239\textsuperscript{\dag} ($+1.6$\%) & 0.7000\textsuperscript{\dag} ($+5.0$\% error) & YES (Fits $\le$ 2000\,MB) \\
-Arm 4: CW-LSAQ (Proposed)       & 5.0 bits (Adaptive)  & 1223.77\,MB& 2.41$\times$ (58.4\% cut)& 16.239\textsuperscript{\dag} ($+1.6$\%) & \textbf{0.5862\textsuperscript{\dag} ($-16.3$\% error)*} & \textbf{YES (Fits $\le$ 2000\,MB)} \\
+Arm 4: CW-LSAQ (Proposed)       & 5.0 bits (Adaptive)  & 1223.77\,MB& 2.41$\times$ (58.4\% cut)& 16.239\textsuperscript{\dag} ($+1.6$\%) & \textbf{0.5862\textsuperscript{\dag} ($-16.3$\%)*} & \textbf{YES (Fits $\le$ 2000\,MB)} \\
 \bottomrule
 \end{tabularx}
 \vspace{0.1cm}
@@ -290,11 +291,11 @@ The decisive distinction appears in the Clinical Critical-Error Rate (CCER). Und
 \centering
 \caption{Virtual Edge Hardware Feasibility Profile (Simulated Quad-Core ARM Environment)}
 \label{tab:edge_profile}
-\renewcommand{\arraystretch}{1.2}
+\renewcommand{\arraystretch}{1.25}
 \footnotesize
-\begin{tabularx}{\columnwidth}{p{2.6cm}p{2.0cm}cc}
+\begin{tabularx}{\columnwidth}{X>{\centering\arraybackslash}p{2.3cm}>{\centering\arraybackslash}p{1.7cm}>{\centering\arraybackslash}p{1.1cm}}
 \toprule
-\textbf{Deployment Metric} & \textbf{Constraint / Budget} & \textbf{Measured Value} & \textbf{Status} \\
+\textbf{Deployment Metric} & \textbf{Constraint / Budget} & \textbf{Measured} & \textbf{Status} \\
 \midrule
 Storage Footprint & $\le$ 2000\,MB (4GB Flash) & 1223.77\,MB & \textbf{PASS} \\
 Peak Process RAM  & $\le$ 3800\,MB (4GB RAM)   & 2236.35\,MB & \textbf{PASS} \\
