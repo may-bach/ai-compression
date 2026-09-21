@@ -2,7 +2,7 @@
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
-[![HuggingFace](https://img.shields.io/badge/🤗%20Hugging%20Face-Transformers-yellow.svg)](https://huggingface.co/)
+[![HuggingFace](https://img.shields.io/badge/Hugging%20Face-Transformers-yellow.svg)](https://huggingface.co/)
 [![Tests Passing](https://img.shields.io/badge/tests-24%20passed-brightgreen.svg)](tests/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -12,7 +12,7 @@
 
 ---
 
-## 📌 Executive Summary
+## Executive Summary
 
 Deploying large language models (LLMs) as offline clinical assistants on edge hardware (such as single-board computers or mobile devices) necessitates aggressive post-training quantization. However, standard layer-adaptive quantization techniques (e.g., LSAQ) rely on unweighted top-$k$ token-set Jaccard similarity to rank layer sensitivity. Because this metric treats common syntactic words and rare high-stakes medical tokens identically, it aggressively compresses layers responsible for encoding exact drug names, numerical dosages, laboratory ranges, and clinical negation cues.
 
@@ -25,7 +25,7 @@ Deploying large language models (LLMs) as offline clinical assistants on edge ha
 
 ---
 
-## 🔬 Core Empirical Results
+## Core Empirical Results
 
 ### 1. Four-Arm Benchmark Comparison
 
@@ -77,7 +77,7 @@ Evaluated using a controlled CPU runtime restricting PyTorch to 4 threads (simul
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 ai-compression/
@@ -126,7 +126,7 @@ ai-compression/
 
 ---
 
-## 🚀 Quickstart & Installation
+## Quickstart & Installation
 
 ### 1. Clone the Repository
 ```bash
@@ -154,7 +154,7 @@ pytest
 
 ---
 
-## 💻 Running the Pipeline
+## Running the Pipeline
 
 ### Run Full Pipeline End-to-End
 Executes QLoRA domain fine-tuning, activation projection, layer scoring, greedy bit allocation, 4-arm benchmarking, and virtual edge profiling:
@@ -170,7 +170,7 @@ python -m src.main --phase scoring
 
 ---
 
-## 📄 Academic Report & Presentation
+## Academic Report & Presentation
  
  This repository includes the Word document, complete LaTeX code for Overleaf, and presentation deck:
  
@@ -181,7 +181,7 @@ python -m src.main --phase scoring
 
 ---
 
-## 👥 Authors & Course Information
+## Authors & Course Information
 
 **Vellore Institute of Technology (VIT)**  
 *School of Electronics Engineering (SENSE)*  
@@ -197,6 +197,6 @@ python -m src.main --phase scoring
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.

@@ -36,4 +36,5 @@ saved_models/
 # Backups & Local Prompts
 *_backup.docx
 AIML*.pdf
+~$*
 
