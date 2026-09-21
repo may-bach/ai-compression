@@ -33,20 +33,7 @@ saved_models/
 *.swo
 
 # OS
-# Backups
+# Backups & Local Prompts
 *_backup.docx
+AIML*.pdf
 
-# Reports, Documents & TeX
-*.docx
-*.doc
-*.pdf
-*.tex
-*.aux
-*.log
-*.out
-*.toc
-*.synctex.gz
-*.bbl
-*.blg
-*.fls
-*.fdb_latexmk
