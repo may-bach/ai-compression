@@ -33,5 +33,6 @@ saved_models/
 *.swo
 
 # OS
-.DS_Store
-Thumbs.db
+# Backups
+*_backup.docx
+
